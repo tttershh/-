@@ -1,0 +1,88 @@
+{
+    "info": {
+      "_postman_id": "12345678-abcd-efgh-ijkl-9876543210",
+      "name": "Fullstack Project Collection",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Register",
+        "request": {
+          "method": "POST",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\":\"testuser\",\n  \"email\":\"test@example.com\",\n  \"password\":\"123456\"\n}"
+          },
+          "url": { "raw": "http://localhost:5000/auth/register", "protocol": "http", "host": ["localhost"], "port":"5000", "path": ["auth","register"] }
+        }
+      },
+      {
+        "name": "Login",
+        "request": {
+          "method": "POST",
+          "header": [{"key":"Content-Type","value":"application/json"}],
+          "body": { "mode":"raw", "raw":"{\"email\":\"test@example.com\",\"password\":\"123456\"}" },
+          "url": { "raw":"http://localhost:5000/auth/login", "protocol":"http","host":["localhost"],"port":"5000","path":["auth","login"] }
+        }
+      },
+      {
+        "name": "Get Items",
+        "request": {
+          "method": "GET",
+          "header": [{"key":"Authorization","value":"Bearer {{token}}"}],
+          "url": { "raw":"http://localhost:5000/items","protocol":"http","host":["localhost"],"port":"5000","path":["items"] }
+        }
+      },
+      {
+        "name": "Create Item",
+        "request": {
+          "method": "POST",
+          "header": [{"key":"Authorization","value":"Bearer {{token}}"}],
+          "body": { "mode":"formdata", "formdata":[
+            {"key":"title","value":"Item 1","type":"text"},
+            {"key":"description","value":"Description","type":"text"}
+          ]},
+          "url": { "raw":"http://localhost:5000/items","protocol":"http","host":["localhost"],"port":"5000","path":["items"] }
+        }
+      },
+      {
+        "name": "Update Item",
+        "request": {
+          "method": "PUT",
+          "header": [{"key":"Authorization","value":"Bearer {{token}}"}],
+          "body": { "mode":"raw", "raw":"{\"title\":\"Updated Item\"}","options":{"raw":{"language":"json"}} },
+          "url": { "raw":"http://localhost:5000/items/1","protocol":"http","host":["localhost"],"port":"5000","path":["items","1"] }
+        }
+      },
+      {
+        "name": "Delete Item",
+        "request": {
+          "method": "DELETE",
+          "header": [{"key":"Authorization","value":"Bearer {{token}}"}],
+          "url": { "raw":"http://localhost:5000/items/1","protocol":"http","host":["localhost"],"port":"5000","path":["items","1"] }
+        }
+      },
+      {
+        "name": "Add to Cart",
+        "request": {
+          "method": "POST",
+          "header": [{"key":"Authorization","value":"Bearer {{token}}"},{"key":"Content-Type","value":"application/json"}],
+          "body": { "mode":"raw","raw":"{\"item_id\":1,\"quantity\":2}" },
+          "url": { "raw":"http://localhost:5000/cart/add","protocol":"http","host":["localhost"],"port":"5000","path":["cart","add"] }
+        }
+      },
+      {
+        "name": "Remove from Cart",
+        "request": {
+          "method": "DELETE",
+          "header": [{"key":"Authorization","value":"Bearer {{token}}"},{"key":"Content-Type","value":"application/json"}],
+          "body": { "mode":"raw","raw":"{\"item_id\":1}" },
+          "url": { "raw":"http://localhost:5000/cart/remove","protocol":"http","host":["localhost"],"port":"5000","path":["cart","remove"] }
+        }
+      }
+    ]
+  }
+  

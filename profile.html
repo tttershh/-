@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Profile</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <h1>My Profile</h1>
+  <div class="nav-links">
+    <a href="/items.html">Items</a>
+    <a href="/login.html" onclick="logout()">Logout</a>
+  </div>
+</header>
+<main>
+  <section id="profile">
+    <h2>Profile Info</h2>
+    <div id="profileData"></div>
+  </section>
+
+  <section id="update">
+    <h2>Update Profile</h2>
+    <form id="updateForm" enctype="multipart/form-data">
+      <input type="text" name="username" placeholder="New username">
+      <input type="file" name="avatar">
+      <button type="submit">Update</button>
+    </form>
+  </section>
+</main>
+
+<script>
+const token = localStorage.getItem('token');
+
+async function loadProfile() {
+  const res = await fetch('/auth/me', {
+    headers: { Authorization: 'Bearer ' + token }
+  });
+  const user = await res.json();
+  if(!user) { alert('Login first'); window.location.href = '/login.html'; return; }
+  document.getElementById('profileData').innerHTML = `
+    <p>ID: ${user.id}</p>
+    <p>Username: ${user.username}</p>
+    <p>Email: ${user.email}</p>
+    <p>Role: ${user.role}</p>
+    ${user.avatar ? `<img src="${user.avatar}" width="150" />` : ''}
+  `;
+}
+
+document.getElementById('updateForm').addEventListener('submit', async e=>{
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const res = await fetch('/auth/me', {
+    method: 'PUT',
+    headers: { Authorization: 'Bearer ' + token },
+    body: fd
+  });
+  if(res.ok){ alert('Profile updated!'); loadProfile(); }
+  else { alert('Update failed'); }
+});
+
+function logout() {
+  localStorage.removeItem('token');
+}
+
+window.addEventListener('load', loadProfile);
+</script>
+</body>
+</html>

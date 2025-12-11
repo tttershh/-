@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Items</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Items</h1>
+    <a href="login.html">Login</a>
+  </header>
+
+  <main>
+    <section id="create">
+      <h2>Create item</h2>
+      <form id="createForm">
+        <input name="title" placeholder="Title" required />
+        <textarea name="description" placeholder="Description"></textarea>
+        <input type="file" name="image" />
+        <button type="submit">Create</button>
+      </form>
+    </section>
+
+    <section id="itemsList">
+      <h2>Items list</h2>
+      <div id="items"></div>
+    </section>
+
+    <section id="cart">
+      <h2>My cart</h2>
+      <div id="cartItems"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
