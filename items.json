@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "title": "Aurora Headphones",
+      "description": "Безпроводные наушники с шумоподавлением, до 20 часов работы и стильным дизайном.",
+      "image": "https://i.ibb.co/6m0R3kM/headphones.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Galaxy Smartwatch",
+      "description": "Смарт-часы с фитнес-трекером, уведомлениями и водонепроницаемым корпусом.",
+      "image": "https://i.ibb.co/dpXVkZy/smartwatch.jpg"
+    },
+    {
+      "id": 3,
+      "title": "PowerMax Pro",
+      "description": "Мощный портативный PowerBank на 20000 mAh с быстрой зарядкой.",
+      "image": "https://i.ibb.co/pJx1yzH/powerbank.jpg"
+    },
+    {
+      "id": 4,
+      "title": "BoomBox Speaker",
+      "description": "Bluetooth-колонка с глубоким басом, стереозвуком и RGB-подсветкой.",
+      "image": "https://i.ibb.co/r6hZ2tG/speaker.jpg"
+    },
+    {
+      "id": 5,
+      "title": "HyperMouse X",
+      "description": "Игровая мышь с RGB-подсветкой, настраиваемыми кнопками и высокой чувствительностью.",
+      "image": "https://i.ibb.co/2n6L8fj/mouse.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Elite Keyboard",
+      "description": "Механическая клавиатура с разноцветной подсветкой и тихими переключателями.",
+      "image": "https://i.ibb.co/NYqDnws/keyboard.jpg"
+    },
+    {
+      "id": 7,
+      "title": "WebCam HD",
+      "description": "Веб-камера 1080p с автофокусом и встроенным микрофоном для стримов и конференций.",
+      "image": "https://i.ibb.co/8jVmr8H/webcam.jpg"
+    }
+  ]
+  
